@@ -46,6 +46,9 @@ const Loginform = styled.form`
 const Loginbutton = styled.button`
     height: 45px;
     width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #52B6FF;
     border: none;
     border-radius: 5px;
