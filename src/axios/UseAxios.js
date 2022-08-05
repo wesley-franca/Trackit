@@ -3,10 +3,10 @@ import axios from "axios";
 const mainURL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit";
 
 
-// function LoginPost(body) {
-//     const promise = axios.post(`${mainURL}/auth/login`, body);
-//     return promise;
-// }
+function LoginPost(body) {
+    const promise = axios.post(`${mainURL}/auth/login`, body);
+    return promise;
+}
 
 function RegistrationPost(body) {
     const promise = axios.post(`${mainURL}/auth/sign-up`, body);
@@ -28,4 +28,4 @@ function RegistrationPost(body) {
 //     return promise;
 // }
 
-export {RegistrationPost};
+export {LoginPost, RegistrationPost};

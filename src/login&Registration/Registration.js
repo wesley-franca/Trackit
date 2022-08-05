@@ -2,7 +2,7 @@ import { RegistrationPost } from "../axios/UseAxios.js"
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {  ThreeDots } from  'react-loader-spinner'
+import {  ThreeDots } from  'react-loader-spinner';
 import styled from "styled-components";
 
 function Registration() {
@@ -17,7 +17,7 @@ function Registration() {
         wrapperStyle={{}}
         wrapperClassName=""
         visible={true}/>    
-        : "cadastrar")
+        : "Cadastrar")
 
     function handleForm(e) {
         e.preventDefault();
@@ -28,7 +28,6 @@ function Registration() {
             image: e.target[3].value,
             password: e.target[1].value
         }
-        console.log(body)
 
         RegistrationPost(body)
             .then((res) => {
@@ -37,7 +36,6 @@ function Registration() {
             .catch((error) => {
                 SetIsDisable(false)
                 alert("Por favor, verifique os dados inseridos")
-                console.log(error);
             })
 
     }

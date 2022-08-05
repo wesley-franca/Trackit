@@ -1,8 +1,42 @@
+import { LoginPost } from "../axios/UseAxios.js"
+
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {  ThreeDots } from  'react-loader-spinner';
 import styled from "styled-components";
 
 function Login() {
+    const [isDisable, SetIsDisable] = useState(false)
+    const navigate = useNavigate()
+    const load = ( isDisable? <ThreeDots 
+        height="80"
+        width="80"
+        radius="9"
+        color="#FFFFFF"
+        ariaLabel="three-dots-loading"
+        wrapperStyle={{}}
+        wrapperClassName=""
+        visible={true}/>    
+        : "Entrar")
+
     function handleForm(e) {
         e.preventDefault();
+        SetIsDisable(true)
+        const body = {
+            email: e.target[0].value,
+            password: e.target[1].value
+        }
+
+        LoginPost(body)
+        .then((res) => {
+            console.log(res.data.token)
+            const token = res.data.token
+            return (navigate("/hoje", { state:token }))
+        })
+        .catch((error) => {
+            SetIsDisable(false)
+            alert("Por favor, verifique os dados inseridos")
+        })
     }
     return (
         <>
@@ -10,13 +44,15 @@ function Login() {
                 <input type="email"
                     name="email"
                     placeholder="email"
+                    disabled={isDisable}
                     required />
 
                 <input type="password"
                     name="password"
                     placeholder="senha"
+                    disabled={isDisable}
                     required />
-                <Loginbutton>Entrar</Loginbutton>
+                <Loginbutton bluur={isDisable}>{load}</Loginbutton>
             </Loginform>
         </>
     )
@@ -55,6 +91,7 @@ const Loginbutton = styled.button`
     font-size: 21px;
     color: #FFFFFF;
     margin-bottom: 25px;
+    opacity: ${props=>props.bluur? 0.7 : 1};
 `
 
 export default Login;
