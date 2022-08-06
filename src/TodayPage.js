@@ -1,10 +1,15 @@
-import { useLocation } from "react-router-dom";
+import Top from "./Top.js"
+import Footer from "./Footer.js"
 
 function TodayPage() {
-    const location = useLocation()
-    const Data = location.state 
-    console.log(Data)
-    return "oioioi,  e quem diria não é mesmo? chegamos até aqui sem grandes dificuldades"
+
+
+    return (
+        <>
+            <Top />
+            <Footer />
+        </>
+    )
 }
 
 export default TodayPage;

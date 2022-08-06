@@ -1,11 +1,14 @@
 import { LoginPost } from "../axios/UseAxios.js"
+import Context from '../Context.js';
 
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import {  ThreeDots } from  'react-loader-spinner';
 import styled from "styled-components";
 
 function Login() {
+    // eslint-disable-next-line no-unused-vars
+    const [profile, setProfile] = useContext(Context);
     const [isDisable, SetIsDisable] = useState(false)
     const navigate = useNavigate()
     const load = ( isDisable? <ThreeDots 
@@ -29,8 +32,8 @@ function Login() {
 
         LoginPost(body)
         .then((res) => {
-            console.log(res.data.token)
             const token = res.data.token
+            setProfile(res.data)
             return (navigate("/hoje", { state:token }))
         })
         .catch((error) => {
