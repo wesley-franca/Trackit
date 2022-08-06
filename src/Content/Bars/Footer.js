@@ -1,12 +1,20 @@
 import TodayGoal from "./TodayGoal.js"
+
+import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 function Footer() {
     return (
         <Wrapper>
-            <p>Hábitos</p>
-            <p>Histórico</p>
-            <TodayGoal />
+            <Link to="/habitos">
+                <p>Hábitos</p>
+            </Link>
+            <Link to="/historico">
+                <p>Histórico</p>
+            </Link>
+            
+                <TodayGoal />
+            
         </Wrapper>
     )
 }
@@ -28,6 +36,9 @@ const Wrapper = styled.div`
         font-weight: 400;
         font-size: 18px;
         color: #52B6FF;
+    }
+    a{
+        text-decoration: none;
     }
 `
 

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Context from './Context.js';
+import Context from '../../tools/Context.js';
 
 import { useContext } from "react";
 

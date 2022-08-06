@@ -1,5 +1,5 @@
-import { LoginPost } from "../axios/UseAxios.js"
-import Context from '../Context.js';
+import { LoginPost } from "../tools/UseAxios.js"
+import Context from '../tools/Context.js';
 
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";

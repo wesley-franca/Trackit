@@ -1,7 +1,7 @@
 import LoginPage from "./login&Registration/LoginPage.js";
 import RegistrationPage from "./login&Registration/RegistrationPage.js";
-import TodayPage from "./TodayPage.js"
-import Context from './Context.js';
+import TodayPage from "./Content/TodayPage.js"
+import Context from './tools/Context.js';
 
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";

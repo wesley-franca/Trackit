@@ -1,4 +1,4 @@
-import { RegistrationPost } from "../axios/UseAxios.js"
+import { RegistrationPost } from "../tools/UseAxios.js"
 
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
