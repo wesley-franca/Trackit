@@ -1,5 +1,5 @@
-import Top from "./Bars/Top.js"
-import Footer from "./Bars/Footer.js"
+import Top from "./Bars/Top.js";
+import Footer from "./Bars/Footer.js";
 
 function TodayPage() {
 

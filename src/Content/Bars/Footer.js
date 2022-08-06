@@ -1,4 +1,4 @@
-import TodayGoal from "./TodayGoal.js"
+import TodayGoal from "./TodayGoal.js";
 
 import { Link } from "react-router-dom"
 import styled from "styled-components"

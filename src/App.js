@@ -1,6 +1,8 @@
-import LoginPage from "./login&Registration/LoginPage.js";
-import RegistrationPage from "./login&Registration/RegistrationPage.js";
+import LoginPage from "./Login&Registration/LoginPage.js";
+import RegistrationPage from "./Login&Registration/RegistrationPage.js";
 import TodayPage from "./Content/TodayPage.js"
+import HabitPage from "./Content/HabitPage.js"
+import HistoryPage from "./Content/HistoryPage.js"
 import Context from './tools/Context.js';
 
 import { useState } from "react";
@@ -16,7 +18,8 @@ function App() {
           <Route path="/" element={<LoginPage />} />
           <Route path="/cadastro" element={<RegistrationPage />} />
           <Route path="/hoje" element={<TodayPage />} />
-
+          <Route path="/habitos" element={<HabitPage />} />
+          <Route path="/historico" element={<HistoryPage />} />
         </Routes>
       </BrowserRouter>
     </Context.Provider>
