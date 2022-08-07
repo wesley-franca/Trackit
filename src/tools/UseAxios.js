@@ -13,19 +13,19 @@ function RegistrationPost(body) {
     return promise;
 }
 
-// function PostHabit() {
-//     const promise = axios.post(`${mainURL}/habits`);
-//     return promise;
-// }
+function PostHabit( body, config ) {
+    const promise = axios.post(`${mainURL}/habits`, body, config);
+    return promise;
+}
 
-// function GetHabit(token) {
-//     const config = {
-//         headers: {
-//             Authorization: `Bearer ${token}`
-//         },
-//     };
-//     const promise = axios.get(`${mainURL}/habits`, config);
-//     return promise;
-// }
+function GetHabit(token) {
+    const config = {
+        headers: {
+            Authorization: `Bearer ${token}`
+        },
+    };
+    const promise = axios.get(`${mainURL}/habits`, config);
+    return promise;
+}
 
-export {LoginPost, RegistrationPost};
+export { LoginPost, RegistrationPost, PostHabit, GetHabit };

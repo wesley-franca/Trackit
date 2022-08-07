@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 function HistoryPage() {
     return (
-        <>
+        <Wrapper>
             <Top />
             <Holder>
                 <Title>Historico </Title>
@@ -13,12 +13,16 @@ function HistoryPage() {
             </Holder>
             
             <Footer />
-        </>
+        </Wrapper>
     )
 }
 
+const Wrapper = styled.div`
+    background-color: #f2f2f2;
+    height: 100%;
+`
 const Holder = styled.div`
-    margin: 70px 17px;
+    padding: 100px 17px;
     
 `
 const Title= styled.p`
@@ -26,7 +30,6 @@ const Title= styled.p`
     font-weight: 400;
     font-family: 'Lexend Deca', sans-serif;
     color: #126BA5;
-    margin-top: 100px;
     margin-bottom: 17px;
 `
 const Message = styled.p`

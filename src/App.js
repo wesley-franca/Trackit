@@ -7,7 +7,7 @@ import Context from './tools/Context.js';
 
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./assets/css/reset.css"
+import "./assets/css/reset.css";
 
 function App() {
   const [profile, setProfile] = useState({});  
