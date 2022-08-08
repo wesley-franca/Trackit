@@ -3,7 +3,7 @@ import TodayGoal from "./TodayGoal.js";
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 
-function Footer() {
+function Footer(reload) {
     return (
         <Wrapper>
             <Link to="/habitos">
@@ -13,7 +13,7 @@ function Footer() {
                 <p>Histórico</p>
             </Link>
             
-                <TodayGoal />
+                <TodayGoal reload={reload} />
             
         </Wrapper>
     )

@@ -48,8 +48,6 @@ function TodayPage() {
             .then((res) => {
                 setDone(res.data.filter(task => task.done === true))
                 setNotone(res.data.filter(task => task.done === false))
-               
-                
             })
             .catch((error) => {
                 console.log(error)
@@ -70,7 +68,7 @@ function TodayPage() {
                 <TodayTasks reload={reload} setReload={setReload} />
             </TaskHolder>
             
-            <Footer />
+            <Footer reload={reload}/>
         </Wrapper>
     )
 }
