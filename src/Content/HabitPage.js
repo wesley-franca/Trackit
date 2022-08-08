@@ -1,6 +1,8 @@
 import Footer from "./Bars/Footer.js";
 import Top from "./Bars/Top.js";
+import HabitContent from "./HabitContent.js" 
 import CreateHabit from "./CreateHabit.js"
+
 
 import { useState } from "react";
 import styled from "styled-components";
@@ -9,6 +11,7 @@ function HabitPage() {
     const [create, setCreate] = useState(false)
     const [habitDays, setHabitDays] = useState([])
     const [isDisable, SetIsDisable] = useState(false);
+    const [reload, setReload] = useState(true)
     return (
         <Wrapper>
             <Top />
@@ -25,9 +28,13 @@ function HabitPage() {
                 setCreate={setCreate}
                 setHabitDays={setHabitDays}
                 habitDays={habitDays}
+                setReload={setReload}
+                reload={reload}
                 SetIsDisable={SetIsDisable}
                 isDisable={isDisable}/>
-                <Text>Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para começar a trackear!</Text>
+
+                <HabitContent reload={reload} />
+                
             </Content>
             <Footer />
         </Wrapper>
@@ -37,9 +44,11 @@ function HabitPage() {
 const Wrapper = styled.div`
     background-color: #f2f2f2;
     height: 100%;
+    overflow: scroll;
+    padding-bottom: 32px;
 `
 const Content = styled.div`
-    margin: 70px 17px;
+    margin: 70px 17px;    
 `
 const Holder = styled.div`
     display: flex;
@@ -66,13 +75,5 @@ const Press = styled.div`
     color: ${props => props.size==="white"? "#52B6FF" : "#FFFFFF"};
     margin-right: ${props => props.size==="white"? "20px" : ""}
 `
-const Text = styled.p`
-    font-family: 'Lexend Deca', sans-serif;
-    font-weight: 400;
-    font-size: 18;
-    line-height: 22px;
-    color: #666666;
-`
-
 
 export default HabitPage;

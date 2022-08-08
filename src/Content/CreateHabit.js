@@ -8,7 +8,7 @@ import { useContext } from "react";
 import {  ThreeDots } from  'react-loader-spinner';
 import styled from "styled-components";
 
-function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, isDisable }) {
+function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, isDisable, setReload, reload }) {
     const weekDays = ["D","S","T","Q","Q","S","S"];
     const [habitName, setHabitName] = useState("");
     const [profile] = useContext(Context);
@@ -23,7 +23,13 @@ function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, 
         visible={true}/>    
         : "Salvar")
 
-    function SendHabit(){
+    function cancel() {
+        if(!isDisable){
+            setCreate(false)
+        }
+    }
+
+    function SendHabit() {
         if(habitName.length !== 0 && habitDays.length !== 0){
             setHabitDays(habitDays.sort()) 
             SetIsDisable(true)
@@ -32,18 +38,16 @@ function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, 
                 name: habitName,
                 days: habitDays
             }
-            
+
             PostHabit(body, config)
                 .then((res) => {
                     setCreate(false)
+                    setReload(!reload)
                 })
                 .catch((error) => {
                     SetIsDisable(false)
                     alert(`Ops, operação não efetuada, erro ${error.response.status}.`)
                 })
-               
-
-            
         }else{
             alert("Dê um nome ao seu novo hábito e selecione quando deseja pratica-lo")
         }
@@ -68,8 +72,8 @@ function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, 
                     })}
                 </DayHolder>
                 <ButtomHolder>
-                    <Press size="white" onClick={() => setCreate(false)}>Cancelar</Press>
-                    <Press onClick={() => SendHabit()}>{load}</Press>
+                    <Press bluur={isDisable} size="white" onClick={() => cancel()}>Cancelar</Press>
+                    <Press bluur={isDisable} onClick={() => SendHabit()}>{load}</Press>
                 </ButtomHolder>
             </CreateBox>
         )
@@ -78,7 +82,7 @@ function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, 
 }
 
 const CreateBox = styled.div`
-    width: 340px;
+    width: 100%;
     height: 180px;
     background: #FFFFFF;
     border-radius: 5px;
@@ -124,7 +128,8 @@ const Press = styled.div`
     font-family: 'Lexend Deca', sans-serif;
     font-size: ${props => props.size==="small"? "29px" : "16px"};
     color: ${props => props.size==="white"? "#52B6FF" : "#FFFFFF"};
-    margin-right: ${props => props.size==="white"? "20px" : ""}
+    margin-right: ${props => props.size==="white"? "20px" : ""};
+    opacity: ${props=>props.bluur? 0.7 : 1};
 `
 
 export default CreateHabit;

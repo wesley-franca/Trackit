@@ -32,6 +32,7 @@ const Wrapper = styled.div`
     }
     img{
         height:50px;
+        width: 50px;
         border-radius: 50%;
     }
 `

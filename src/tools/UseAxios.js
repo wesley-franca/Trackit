@@ -13,17 +13,13 @@ function RegistrationPost(body) {
     return promise;
 }
 
-function PostHabit( body, config ) {
+function PostHabit(body, config) {
     const promise = axios.post(`${mainURL}/habits`, body, config);
     return promise;
 }
 
 function GetHabit(token) {
-    const config = {
-        headers: {
-            Authorization: `Bearer ${token}`
-        },
-    };
+    const config = { headers: { Authorization: `Bearer ${token}` } }
     const promise = axios.get(`${mainURL}/habits`, config);
     return promise;
 }
