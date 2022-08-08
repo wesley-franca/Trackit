@@ -24,4 +24,10 @@ function GetHabit(token) {
     return promise;
 }
 
-export { LoginPost, RegistrationPost, PostHabit, GetHabit };
+function DeleteHabit(token, id) {
+    const config = { headers: { Authorization: `Bearer ${token}` } }
+    const promise = axios.delete(`${mainURL}//habits/${id}`, config);
+    return promise;
+}
+
+export { LoginPost, RegistrationPost, PostHabit, GetHabit, DeleteHabit };

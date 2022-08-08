@@ -33,7 +33,7 @@ function HabitPage() {
                 SetIsDisable={SetIsDisable}
                 isDisable={isDisable}/>
 
-                <HabitContent reload={reload} />
+                <HabitContent reload={reload} setReload={setReload}/>
                 
             </Content>
             <Footer />

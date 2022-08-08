@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import styled from "styled-components";
 
-function HabitContent({ reload }) {
+function HabitContent({ reload, setReload }) {
     const [profile] = useContext(Context);
     const [haveHabits, setHaveHabits] = useState(false);
     const [list, setList] = useState({})
@@ -19,10 +19,10 @@ function HabitContent({ reload }) {
             })
             .catch((error) => {
                 console.log(error)
-                alert(`Ops, operação não efetuada, erro ${error.response.status}, faça o login novamente.`)
+                alert(`Ops, operação não efetuada, erro ${error.response.status}, faça o login`)
                 return (navigate("/"))
-
             })
+            // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reload]);
 
 
@@ -30,7 +30,7 @@ function HabitContent({ reload }) {
         return (
             <>
                 {list.map((habit, index) => {
-                    return <Habit habit={habit} key={index} />
+                    return <Habit habit={habit} reload={reload} setReload={setReload} key={index} />
                 })}
             </>
         )
