@@ -28,7 +28,6 @@ function Tasks({reload, setReload}) {
             })
             .catch((error) => {
                 console.log(error)
-                alert(`Ops, operação não efetuada, erro ${error.response.status}`)
             })
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reload]);

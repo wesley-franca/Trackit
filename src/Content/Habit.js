@@ -33,7 +33,6 @@ function Habit({ habit, reload, setReload }) {
             })
             .catch((error) => {
                 console.log(error)
-                alert(`Ops, operação não efetuada, erro ${error.response.status}`)
             })
     }
     return (

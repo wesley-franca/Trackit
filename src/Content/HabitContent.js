@@ -19,7 +19,7 @@ function HabitContent({ reload, setReload }) {
             })
             .catch((error) => {
                 console.log(error)
-                alert(`Ops, operação não efetuada, erro ${error.response.status}, faça o login`)
+                
                 return (navigate("/"))
             })
             // eslint-disable-next-line react-hooks/exhaustive-deps

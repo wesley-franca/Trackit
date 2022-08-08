@@ -5,8 +5,10 @@ import 'react-circular-progressbar/dist/styles.css';
 import { useContext, useState, useEffect } from "react";
 import Context from '../../tools/Context.js';
 import { GetToday } from "../../tools/UseAxios"
+import { useNavigate } from "react-router-dom";
 
 function TodayGoal(reload) {
+    const navigate = useNavigate()
     const [profile] = useContext(Context);
     const [done, setDone] = useState([])
     const [notDone, setNotone] = useState([])
@@ -21,6 +23,7 @@ function TodayGoal(reload) {
             .catch((error) => {
                 console.log(error)
                 alert(`Ops, operação não efetuada, erro ${error.response.status}, faça o login`)
+                return (navigate("/"))
             })
             // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reload]);

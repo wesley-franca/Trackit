@@ -20,7 +20,6 @@ function Task({ habit, reload, setReload }) {
                 })
                 .catch((error) => {
                     console.log(error)
-                    alert(`Ops, operação não efetuada, erro ${error.response.status}`)
                 })
         }else{
             PostUndone(profile.token, id)
@@ -29,7 +28,6 @@ function Task({ habit, reload, setReload }) {
                 })
                 .catch((error) => {
                     console.log(error)
-                    alert(`Ops, operação não efetuada, erro ${error.response.status}`)
                 })
         }
     }

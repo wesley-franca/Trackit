@@ -51,7 +51,6 @@ function TodayPage() {
             })
             .catch((error) => {
                 console.log(error)
-                alert(`Ops, operação não efetuada, erro ${error.response.status}, faça o login`)
             })
             // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reload]);
