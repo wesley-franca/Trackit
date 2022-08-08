@@ -26,8 +26,28 @@ function GetHabit(token) {
 
 function DeleteHabit(token, id) {
     const config = { headers: { Authorization: `Bearer ${token}` } }
-    const promise = axios.delete(`${mainURL}//habits/${id}`, config);
+    const promise = axios.delete(`${mainURL}/habits/${id}`, config);
     return promise;
 }
 
-export { LoginPost, RegistrationPost, PostHabit, GetHabit, DeleteHabit };
+function GetToday(token) {
+    const config = { headers: { Authorization: `Bearer ${token}` } }
+    const promise = axios.get(`${mainURL}/habits/today`, config);
+    return promise;
+}
+
+function PostDone(token, id) {
+    const config = { headers: { Authorization: `Bearer ${token}` } }
+    const body = {}
+    const promise = axios.post(`${mainURL}/habits/${id}/check`, body, config);
+    return promise;
+}
+
+function PostUndone(token, id) {
+    const config = { headers: { Authorization: `Bearer ${token}` } }
+    const body = {}
+    const promise = axios.post(`${mainURL}/habits/${id}/uncheck`, body, config);
+    return promise;
+}
+
+export { LoginPost, RegistrationPost, PostHabit, GetHabit, DeleteHabit, GetToday, PostDone, PostUndone };

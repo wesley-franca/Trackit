@@ -92,7 +92,7 @@ const Daybox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.color ? "#FFFFFF" : "#D5D5D5"};
+    background-color: ${(props) => props.color? "#FFFFFF" : "#D5D5D5"};
     border: 1px solid #D5D5D5;
     border-radius: 5px;
     color: ${(props) => props.color ? "#D5D5D5" : "#FFFFFF"};
