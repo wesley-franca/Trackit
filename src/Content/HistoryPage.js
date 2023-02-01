@@ -1,6 +1,5 @@
 import Footer from "./Bars/Footer.js"
 import Top from "./Bars/Top.js"
-
 import styled from "styled-components";
 
 function HistoryPage() {
@@ -11,7 +10,6 @@ function HistoryPage() {
                 <Title>Historico </Title>
                 <Message>Em breve você poderá ver o histórico dos seus hábitos aqui!</Message>
             </Holder>
-            
             <Footer />
         </Wrapper>
     )
@@ -25,7 +23,7 @@ const Holder = styled.div`
     padding: 100px 17px;
     
 `
-const Title= styled.p`
+const Title = styled.p`
     font-size: 23px;
     font-weight: 400;
     font-family: 'Lexend Deca', sans-serif;

@@ -1,18 +1,16 @@
 import WeekDay from "./WeekDay.js"
 import Context from '../tools/Context.js';
 import { PostHabit } from "../tools/UseAxios";
-
-
 import { useState } from "react";
 import { useContext } from "react";
-import {  ThreeDots } from  'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import styled from "styled-components";
 
-function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, isDisable, setReload, reload }) {
-    const weekDays = ["D","S","T","Q","Q","S","S"];
+function CreateHabit({ create, setCreate, setHabitDays, habitDays, SetIsDisable, isDisable, setReload, reload }) {
+    const weekDays = ["D", "S", "T", "Q", "Q", "S", "S"];
     const [habitName, setHabitName] = useState("");
     const [profile] = useContext(Context);
-    const load = ( isDisable? <ThreeDots 
+    const load = (isDisable ? <ThreeDots
         height="80"
         width="80"
         radius="9"
@@ -20,18 +18,18 @@ function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, 
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
         wrapperClassName=""
-        visible={true}/>    
+        visible={true} />
         : "Salvar")
 
     function cancel() {
-        if(!isDisable){
+        if (!isDisable) {
             setCreate(false)
         }
     }
 
     function SendHabit() {
-        if(habitName.length !== 0 && habitDays.length !== 0){
-            setHabitDays(habitDays.sort()) 
+        if (habitName.length !== 0 && habitDays.length !== 0) {
+            setHabitDays(habitDays.sort())
             SetIsDisable(true)
             const config = { headers: { Authorization: `Bearer ${profile.token}` } }
             let body = {
@@ -48,26 +46,26 @@ function CreateHabit({create, setCreate, setHabitDays, habitDays, SetIsDisable, 
                     SetIsDisable(false)
                     alert(`Ops, operação não efetuada, erro ${error.response.status}.`)
                 })
-        }else{
+        } else {
             alert("Dê um nome ao seu novo hábito e selecione quando deseja pratica-lo")
         }
     }
     function handleChange(e) {
         setHabitName(e.target.value)
     }
-    if(create){
+    if (create) {
         return (
             <CreateBox>
                 <div>
-                    <Createinput 
-                    type="text" 
-                    name="habit" 
-                    placeholder="nome do hábito" 
-                    disabled={isDisable}
-                    onChange={handleChange} />
+                    <Createinput
+                        type="text"
+                        name="habit"
+                        placeholder="nome do hábito"
+                        disabled={isDisable}
+                        onChange={handleChange} />
                 </div>
                 <DayHolder>
-                    {weekDays.map((day, index)=>{
+                    {weekDays.map((day, index) => {
                         return <WeekDay day={day} index={index} setHabitDays={setHabitDays} habitDays={habitDays} isDisable={isDisable} key={index} />
                     })}
                 </DayHolder>
@@ -118,18 +116,18 @@ const Createinput = styled.input`
         }
 `
 const Press = styled.div`
-    width: ${props => props.size==="small"? "40px" : "84px"};
+    width: ${props => props.size === "small" ? "40px" : "84px"};
     height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color:${props => props.size==="white"? "#FFFFFF" : "#52B6FF"};
+    background-color:${props => props.size === "white" ? "#FFFFFF" : "#52B6FF"};
     border-radius: 4.63636px;
     font-family: 'Lexend Deca', sans-serif;
-    font-size: ${props => props.size==="small"? "29px" : "16px"};
-    color: ${props => props.size==="white"? "#52B6FF" : "#FFFFFF"};
-    margin-right: ${props => props.size==="white"? "20px" : ""};
-    opacity: ${props=>props.bluur? 0.7 : 1};
+    font-size: ${props => props.size === "small" ? "29px" : "16px"};
+    color: ${props => props.size === "white" ? "#52B6FF" : "#FFFFFF"};
+    margin-right: ${props => props.size === "white" ? "20px" : ""};
+    opacity: ${props => props.bluur ? 0.7 : 1};
 `
 
 export default CreateHabit;

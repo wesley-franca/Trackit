@@ -1,14 +1,13 @@
 import { RegistrationPost } from "../tools/UseAxios.js"
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {  ThreeDots } from  'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import styled from "styled-components";
 
 function Registration() {
     const [isDisable, SetIsDisable] = useState(false)
     const navigate = useNavigate()
-    const load = ( isDisable? <ThreeDots 
+    const load = (isDisable ? <ThreeDots
         height="80"
         width="80"
         radius="9"
@@ -16,7 +15,7 @@ function Registration() {
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
         wrapperClassName=""
-        visible={true}/>    
+        visible={true} />
         : "Cadastrar")
 
     function handleForm(e) {
@@ -37,7 +36,6 @@ function Registration() {
                 SetIsDisable(false)
                 alert("Por favor, verifique os dados inseridos")
             })
-
     }
     return (
         <>
@@ -62,8 +60,6 @@ function Registration() {
                     placeholder="foto"
                     disabled={isDisable}
                     required />
-
-                
                 <Registbutton bluur={isDisable}>{load}</Registbutton>
             </Regitform>
         </>
@@ -101,7 +97,7 @@ const Registbutton = styled.button`
     font-size: 21px;
     color: #FFFFFF;
     margin-bottom: 25px;
-    opacity: ${props=>props.bluur? 0.7 : 1};
+    opacity: ${props => props.bluur ? 0.7 : 1};
 `
 
 export default Registration;

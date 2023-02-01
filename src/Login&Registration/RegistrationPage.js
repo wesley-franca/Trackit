@@ -1,7 +1,6 @@
 import MainLogo from "./styles/MainLogo.js";
 import Registration from "./Registration.js";
-
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 function RegistrationPage() {
@@ -15,7 +14,6 @@ function RegistrationPage() {
         </Wrapper>
     )
 }
-
 
 const Wrapper = styled.div`
     display: flex;

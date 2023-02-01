@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import Context from '../../tools/Context.js';
-
 import { useContext } from "react";
 
 function Top() {

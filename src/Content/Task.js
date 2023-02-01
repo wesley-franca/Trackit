@@ -6,14 +6,14 @@ import { useContext } from "react";
 
 function Task({ habit, reload, setReload }) {
     let lineColor = false
-    if(habit.highestSequence>0 && habit.currentSequence === habit.highestSequence) {
+    if (habit.highestSequence > 0 && habit.currentSequence === habit.highestSequence) {
         lineColor = true
     }
     const [profile] = useContext(Context);
     const id = habit.id
 
     function Click() {
-        if(habit.done === false){
+        if (habit.done === false) {
             PostDone(profile.token, id)
                 .then((res) => {
                     setReload(!reload)
@@ -21,7 +21,7 @@ function Task({ habit, reload, setReload }) {
                 .catch((error) => {
                     console.log(error)
                 })
-        }else{
+        } else {
             PostUndone(profile.token, id)
                 .then((res) => {
                     setReload(!reload)

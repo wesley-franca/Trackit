@@ -12,9 +12,9 @@ function Footer(reload) {
             <Link to="/historico">
                 <p>Histórico</p>
             </Link>
-            
-                <TodayGoal reload={reload} />
-            
+
+            <TodayGoal reload={reload} />
+
         </Wrapper>
     )
 }

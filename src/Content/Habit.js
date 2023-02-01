@@ -1,17 +1,16 @@
 import { DeleteHabit } from "../tools/UseAxios";
 import Context from '../tools/Context.js';
-
 import { useContext, useState } from "react";
 import styled from "styled-components";
 import trash from "../assets/images/trash.png";
-import {  ThreeDots } from  'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 
 function Habit({ habit, reload, setReload }) {
     const [clicked, setClicked] = useState(false)
     const [profile] = useContext(Context);
     const id = habit.id
     const [isDisable, setIsDisable] = useState(false)
-    const load = ( isDisable? <ThreeDots 
+    const load = (isDisable ? <ThreeDots
         height="80"
         width="80"
         radius="9"
@@ -19,13 +18,13 @@ function Habit({ habit, reload, setReload }) {
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
         wrapperClassName=""
-        visible={true}/>    
+        visible={true} />
         : "Sim")
 
     function Delete() {
         setIsDisable(!isDisable)
-        
-            DeleteHabit(profile.token, id)
+
+        DeleteHabit(profile.token, id)
             .then((res) => {
                 setIsDisable(!isDisable)
                 setClicked(!clicked)
@@ -50,11 +49,11 @@ function Habit({ habit, reload, setReload }) {
                 <Daybox color={habit.days.includes(5)}>S</Daybox>
                 <Daybox color={habit.days.includes(6)}>S</Daybox>
             </Flex>
-            <DeleteBox clicked={clicked}> 
+            <DeleteBox clicked={clicked}>
                 <p>Tem certeza que deseja deletar o habito "{habit.name}" permanentemente?</p>
                 <Flex>
-                <Press onClick={() => { setClicked(!clicked) }}>Cancelar</Press>
-                <Press onClick={() => {Delete()}}>{load}</Press> 
+                    <Press onClick={() => { setClicked(!clicked) }}>Cancelar</Press>
+                    <Press onClick={() => { Delete() }}>{load}</Press>
                 </Flex>
             </DeleteBox>
         </Wrapper>
@@ -91,7 +90,7 @@ const Daybox = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: ${(props) => props.color? "#FFFFFF" : "#D5D5D5"};
+    background-color: ${(props) => props.color ? "#FFFFFF" : "#D5D5D5"};
     border: 1px solid #D5D5D5;
     border-radius: 5px;
     color: ${(props) => props.color ? "#D5D5D5" : "#FFFFFF"};
@@ -108,7 +107,7 @@ const DeleteBox = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    display: ${props=> props.clicked? "initial" : "none"};
+    display: ${props => props.clicked ? "initial" : "none"};
     p{
         font-family: 'Lexend Deca', sans-serif;
         font-weight: 400;
@@ -118,7 +117,7 @@ const DeleteBox = styled.div`
     }
 `
 const Press = styled.div`
-    width: ${props => props.size==="small"? "40px" : "84px"};
+    width: ${props => props.size === "small" ? "40px" : "84px"};
     height: 35px;
     display: flex;
     align-items: center;

@@ -7,7 +7,7 @@ function WeekDay({ day, index, setHabitDays, habitDays, isDisable }) {
         return value !== index
     }
     function chooseDay() {
-        if(!isDisable){
+        if (!isDisable) {
             if (clicked) {
                 setHabitDays(habitDays.filter(differentIndex))
                 setClicked(!clicked)
@@ -18,7 +18,7 @@ function WeekDay({ day, index, setHabitDays, habitDays, isDisable }) {
         }
     }
     return (
-            <Daybox clicked={clicked} onClick={() => chooseDay()}>{day}</Daybox>
+        <Daybox clicked={clicked} onClick={() => chooseDay()}>{day}</Daybox>
     )
 }
 

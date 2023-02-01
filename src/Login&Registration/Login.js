@@ -1,9 +1,8 @@
 import { LoginPost } from "../tools/UseAxios.js"
 import Context from "../tools/Context.js";
-
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import {  ThreeDots } from  'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import styled from "styled-components";
 
 function Login() {
@@ -11,7 +10,7 @@ function Login() {
     const [profile, setProfile] = useContext(Context);
     const [isDisable, SetIsDisable] = useState(false)
     const navigate = useNavigate()
-    const load = ( isDisable? <ThreeDots 
+    const load = (isDisable ? <ThreeDots
         height="80"
         width="80"
         radius="9"
@@ -19,7 +18,7 @@ function Login() {
         ariaLabel="three-dots-loading"
         wrapperStyle={{}}
         wrapperClassName=""
-        visible={true}/>    
+        visible={true} />
         : "Entrar")
 
     function handleForm(e) {
@@ -31,15 +30,15 @@ function Login() {
         }
 
         LoginPost(body)
-        .then((res) => {
-            const token = res.data.token
-            setProfile(res.data)
-            return (navigate("/hoje", { state:token }))
-        })
-        .catch((error) => {
-            SetIsDisable(false)
-            alert("Por favor, verifique os dados inseridos")
-        })
+            .then((res) => {
+                const token = res.data.token
+                setProfile(res.data)
+                return (navigate("/hoje", { state: token }))
+            })
+            .catch((error) => {
+                SetIsDisable(false)
+                alert("Por favor, verifique os dados inseridos")
+            })
     }
     return (
         <>
@@ -60,8 +59,6 @@ function Login() {
         </>
     )
 }
-
-
 
 const Loginform = styled.form`
     display: flex;
@@ -94,7 +91,7 @@ const Loginbutton = styled.button`
     font-size: 21px;
     color: #FFFFFF;
     margin-bottom: 25px;
-    opacity: ${props=>props.bluur? 0.7 : 1};
+    opacity: ${props => props.bluur ? 0.7 : 1};
 `
 
 export default Login;

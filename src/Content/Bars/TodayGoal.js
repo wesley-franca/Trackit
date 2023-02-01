@@ -12,38 +12,38 @@ function TodayGoal(reload) {
     const [profile] = useContext(Context);
     const [done, setDone] = useState([])
     const [notDone, setNotone] = useState([])
-    const percentage = ((100/(done.length+notDone.length))*done.length)
+    const percentage = ((100 / (done.length + notDone.length)) * done.length)
 
     useEffect(() => {
         GetToday(profile.token)
             .then((res) => {
                 setDone(res.data.filter(task => task.done === true))
-                setNotone(res.data.filter(task => task.done === false)) 
+                setNotone(res.data.filter(task => task.done === false))
             })
             .catch((error) => {
                 console.log(error)
                 alert(`Ops, operação não efetuada, erro ${error.response.status}, faça o login`)
                 return (navigate("/"))
             })
-            // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [reload]);
     return (
-            <Wrapper>
-                <Link to="/hoje">
-                    <Holder>
+        <Wrapper>
+            <Link to="/hoje">
+                <Holder>
                     <CircularProgressbar
-        value={percentage}
-        text={`Hoje`}
-        styles={buildStyles({
-          textColor: "#FFFFFF",
-          pathColor: "#FFFFFF",
-          trailColor: "#52B6FF",
-          textSize: '22px'
-        })}
-      />
-                    </Holder>
-                </Link>
-            </Wrapper>
+                        value={percentage}
+                        text={`Hoje`}
+                        styles={buildStyles({
+                            textColor: "#FFFFFF",
+                            pathColor: "#FFFFFF",
+                            trailColor: "#52B6FF",
+                            textSize: '22px'
+                        })}
+                    />
+                </Holder>
+            </Link>
+        </Wrapper>
     )
 }
 
