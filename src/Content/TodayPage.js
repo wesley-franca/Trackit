@@ -13,7 +13,7 @@ function TodayPage() {
     const [done, setDone] = useState([])
     const [notDone, setNotone] = useState([])
     const percentage = ((100/(done.length+notDone.length))*done.length)
-    const doneTasks = done.length===0? "Nenhum hábito concluído ainda" : `${percentage}% dos hábitos concluídos`
+    const doneTasks = done.length===0? "Nenhum hábito concluído ainda" : `${percentage.toFixed(0)}% dos hábitos concluídos`
     const dayjs = require('dayjs')
     let day = dayjs().date().toString()
     if(day.length === 1){
