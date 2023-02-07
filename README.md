@@ -1,6 +1,6 @@
 # TrackIt
 
-<h1>TrackIt is an aplication made to track all your daylly routine.</h1>
+<h1>TrackIt is an application made to track all your daylly routine.</h1>
 
 <h1>That aplication was the one front-end project I made and realize what I was really able to achive with web development</h1>
 <h1>Being the first usefull project I ever made It has a space in my heart.</h1>
